@@ -20,6 +20,11 @@ preferred_language = input("Enter your preferred language : ")
 school_college_name = input("Enter your school/college name : ")    
 class_grade = input("Enter your class/grade : ")    
 board_curriculum = input("Enter your board/curriculum : ")
-academic_year = input("Enter your academic year : ")    
+academic_year = input("Enter your academic year : ")
 
-s1.setBasicDetails(full_name, date_of_birth, gender, mobile_number, preferred_language, school_college_name, class_grade, board_curriculum, academic_year)
+s1.basicDetails(full_name, date_of_birth, gender, mobile_number, preferred_language, school_college_name, class_grade, board_curriculum, academic_year)
+
+
+s1.save_to_database()
+s1.setfullname_dob_gender_mobile(self, full_name, date_of_birth, gender, mobile_number):
+        

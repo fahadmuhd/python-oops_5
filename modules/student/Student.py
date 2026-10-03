@@ -19,27 +19,22 @@ class studentClass:
         self.parent_guardian_relationship = ''
         self.parent_guardian_mobile_number = ''
         self.parent_guardian_email_address = ''
-        self.preferred_communication_method = ''
+        self.preferred_comcommunication_method = ' '
 
 
-
-    def setuserNameandPassword(self, email, password):
-        self.email_address = email
-        self.password = password  
-
-    def setBasicDetails(self, full_name, date_of_birth, gender, mobile_number, preferred_language, school_college_name, class_grade, board_curriculum, academic_year):
-        '''
-        This method sets the basic details of the student, including full name, date of birth, gender, mobile number, preferred language, school/college name, class/grade, board/curriculum, and academic year.
-        '''
+    def setfullname_dob_gender_mobile(self, full_name, date_of_birth, gender, mobile_number):
         self.full_name = full_name
         self.date_of_birth = date_of_birth
         self.gender = gender
         self.mobile_number = mobile_number
-        if len(self.mobile_number) != 10:
-            raise ValueError("Mobile number must be 10 digits long.")
-        return
-        self.preferred_language = preferred_language
-        self.school_college_name = school_college_name
-        self.class_grade = class_grade
-        self.board_curriculum = board_curriculum
-        self.academic_year = academic_year
+
+    def save_to_database(self):
+        import sqlite3
+        conn = sqlite3.connect("tution.db")
+        cursor = conn.cursor()
+        cursor.execute("""
+            INSERT INTO students (full_name, date_of_birth, age, gender, mobile_number, email_address, password, preferred_language, school_college_name, class_grade, board_curriculum, academic_year)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """, (self.full_name, self.date_of_birth, self.age, self.gender, self.mobile_number, self.email_address, self.password, self.preferred_language, self.school_college_name, self.class_grade, self.board_curriculum, self.academic_year))
+        conn.commit()
+        conn.close()

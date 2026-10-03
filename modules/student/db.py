@@ -38,36 +38,7 @@ cursor.execute("""
         parent_guardian_mobile_number INT
     );
 """)
-cursor.execute("""
-    INSERT INTO students (
-        full_name,
-        date_of_birth,
-        age,
-        gender,
-        mobile_number,
-        email_address,
-        password,
-        preferred_language,
-        school_college_name,
-        class_grade,
-        board_curriculum,
-        academic_year
-    )
-    VALUES (
-        'MUHAMMED Fahad',
-        '2006-09-20',
-        20,
-        'male',
-        9562688002,
-        'fahadm265627@gmail.com',
-        'fahada2145',
-        'malayalam',
-        'ilahia',
-        'A',
-        'nill',
-        '2025'
-    )
-""")
+
 
 # Save changes
 conn.commit()
